@@ -1,0 +1,132 @@
+
+https://wordmark.it/
+
+
+fount:
+\
+https://fonts.google.com/
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Megrim&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+
+.fira-mono-medium {
+  font-family: "Fira Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.megrim-regular {
+  font-family: "Megrim", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mrs-saint-delafield-regular {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+logo icon:
+\
+https://fontawesome.com/
+<i class="fa-brands fa-instagram" style="color: rgb(253, 212, 62);"></i>
+<i class="fa-solid fa-cart-shopping" style="color: rgb(253, 212, 62);"></i>
+<i class="fa-solid fa-user" style="color: rgb(253, 212, 62);"></i>
+<i class="fa-solid fa-house" style="color: rgb(253, 212, 62);"></i>
+<i class="fa-solid fa-star" style="color: rgb(253, 212, 62);"></i>
+
+
+color:
+\
+https://coolors.co/
+
+1: choose you like color 
+2: go to check the color is good ?
+
+https://coolors.co/contrast-checker
+#001d3d
+#eef4ed
+#FFE666
+
+
+
+/* one color can used " Tailwind Colors "
+
+{
+  "gold": {
+    "50": "#fffbe5",
+    "100": "#fff6cc",
+    "200": "#ffee99",
+    "300": "#ffe666",
+    "400": "#ffdd33",
+    "500": "#ffd500",
+    "600": "#ccaa00",
+    "700": "#998000",
+    "800": "#665500",
+    "900": "#332b00",
+    "950": "#241e00"
+  }
+}
+
+/* for css used the format
+{
+ 
+    "prussian-blue": {
+    --clr-primary-0: #fffbe5,
+    --clr-primary-1: #fff6cc,
+    --clr-primary-2: #ffee99,
+    --clr-primary-3: #ffe666,
+    --clr-primary-4: #ffdd33,
+    --clr-primary-5: #ffd500,
+    --clr-primary-6: #ccaa00,
+    --clr-primary-7: #998000,
+    --clr-primary-8: #665500,
+    --clr-primary-9: #332b00,
+    --clr-primary-10: #241e00
+  }
+}
+{
+  "gold": {
+    --clr-grey-1: hsl(50.1 100% 50%),
+    --clr-grey-2: hsla(50.1 100% 50%,0.9),
+    --clr-grey-3: hsla(50.1 100% 50%,0.8),
+    --clr-grey-4: hsla(50.1 100% 50%,0.7),
+    --clr-grey-5: hsla(50.1 100% 50%,0.6),
+    --clr-grey-6: hsla(50.1 100% 50%,0.5),
+    --clr-grey-7: hsla(50.1 100% 50%,0.4),
+    --clr-grey-8: hsla(50.1 100% 50%,0.3),
+    --clr-grey-9: hsla(50.1 100% 50%,0.2),
+    --clr-grey-10: hsla(50.1 100% 50%,0.1),
+  }
+}
+
+
+font :
+\
+https://cdnjs.com/libraries/font-awesome
+
+
+logo design:
+\
+https://miora.design/home
+
+
+css design:
+\
+https://tailwindcss.com/
+
+try css web:
+\
+https://caniuse.com/
+
+add report:
+\
+https://app.netlify.com/teams/kitakita11/projects
+
+
+
