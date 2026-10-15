@@ -74,7 +74,7 @@ cart.forEach((item, index) => {
     cartItem.className = 'cart-item';
     cartItem.innerHTML = `
         <div class="cart-item-img">
-        <img src="${item.type === 'custom bracelet' ? item.previewImage : (isGitHubPage?'/kitakira'+item.img: item.img) }" alt="${item.name || item.zodiac + ' Bracelet'}">
+        <img src="${item.type === 'custom bracelet' ? item.previewImage : (isGitHubPage?'/kitakira'+item.img: item.img)}" alt="${item.name || item.zodiac + ' Bracelet'}">
         </div>
         <div class="cart-item-info">
         <h3>${item.type === 'custom bracelet' ? `Custom ${item.zodiac} Bracelet` : item.name}</h3>
