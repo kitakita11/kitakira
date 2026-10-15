@@ -66,13 +66,15 @@ cart.forEach((item, index) => {
     const qty = Number(item.quantity ?? 1);
     const price = Number(item.price ?? 0);
     const lineTotal = price * qty;
+    const isGitHubPage = window.location.hostname.endsWith('.github.io');
+
     total += lineTotal;
 
     const cartItem = document.createElement('div');
     cartItem.className = 'cart-item';
     cartItem.innerHTML = `
         <div class="cart-item-img">
-        <img src="${item.type === 'custom bracelet' ? item.previewImage : item.img}" alt="${item.name || item.zodiac + ' Bracelet'}">
+        <img src="${item.type === 'custom bracelet' ? item.previewImage : (isGitHubPage?'/kitakira'+item.img: item.img) }" alt="${item.name || item.zodiac + ' Bracelet'}">
         </div>
         <div class="cart-item-info">
         <h3>${item.type === 'custom bracelet' ? `Custom ${item.zodiac} Bracelet` : item.name}</h3>
