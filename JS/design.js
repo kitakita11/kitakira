@@ -29,17 +29,17 @@ mobileFiveElement.addEventListener("click",(e)=>{
 
 //====== 3D DESIGN ==========
 const IMAGES = [
-"../img/design-aquarius.jpeg",
-"../img/design-cancer.png",
-"../img/design-aries.png",
-"../img/design-cp.png",
-"../img/design-capricorn.png",
-"../img/design-pisces.jpeg",
-"../img/design-scorpio.jpeg",
-"../img/design-summer.png",
-"../img/design-gemini.png",
-"../img/design-leo.png",
-"../img/design-10.png",
+"/img/design-aquarius.jpeg",
+"/img/design-cancer.png",
+"/img/design-aries.png",
+"/img/design-cp.png",
+"/img/design-capricorn.png",
+"/img/design-pisces.jpeg",
+"/img/design-scorpio.jpeg",
+"/img/design-summer.png",
+"/img/design-gemini.png",
+"/img/design-leo.png",
+"/img/design-10.png",
 ];
 const sceneDom = document.getElementById("photo");
 const count = IMAGES.length;
