@@ -28,6 +28,8 @@ mobileFiveElement.addEventListener("click",(e)=>{
 })
 
 //====== 3D DESIGN ==========
+const sceneDom = document.getElementById("photo");
+if(sceneDom){
 const IMAGES = [
 "./img/design-aquarius.jpeg",
 "./img/design-cancer.png",
@@ -41,7 +43,6 @@ const IMAGES = [
 "./img/design-leo.png",
 "./img/design-10.png",
 ];
-const sceneDom = document.getElementById("photo");
 const count = IMAGES.length;
 
 // B：圆环基础半径，大屏默认，移动端自动缩小
@@ -115,3 +116,4 @@ window.addEventListener('resize', ()=>{
     card.style.setProperty("--final-pos", `translate3d(${offsetX}px,${offsetY}px,${offsetZ}px) rotateY(${cardRotateY}deg)`);
     })
 })
+}
