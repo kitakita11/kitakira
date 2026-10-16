@@ -1,4 +1,40 @@
 
+website design UML:
+
+graph TD
+    A[首頁 Home] -->|Navbar 導覽| B[十二星座 Page]
+    A --> C[水晶介紹 Page]
+    A --> D[限定水晶 Page]
+    A --> E[DIY水晶 Crystal Design Page]
+    A --> F[會員登入 Page]
+    A --> G[購物車 cart.html]
+    A --> H[IG Instagram 外部連結]
+
+    %% DIY 頁面內部步驟結構
+    E --> E1[Hero首屏區<br/>標題+開始設計按鈕]
+    E --> E2[Step1 生日填寫區<br/>日期選擇器 + 送出]
+    E --> E3[Step2 星座水晶推薦區<br/>依生日匹配星座素材]
+    E --> E4[Step3 水晶拖拉設計區<br/>畫布、珠子素材、裝飾]
+    E --> E5[Step4 價格計算 & 加入購物車<br/>階梯報價、加入購物車按鈕]
+
+    %% 限定水晶頁內部分類
+    D --> D1[十二星座限定水晶]
+    D --> D2[情侶水晶]
+    D --> D3[季節限定水晶]
+
+    %% 水晶介紹頁內部章節
+    C --> C1[水晶類別]
+    C --> C2[水晶形成原理]
+    C --> C3[水晶傳說故事]
+    C --> C4[水晶產地]
+
+    subgraph 全站共用元件
+        NAV[Navbar 固定導覽列<br/>行動版彈出選單]
+        FOOTER[Footer 頁尾<br/>版權、IG連結]
+end
+
+
+
 https://wordmark.it/
 
 
