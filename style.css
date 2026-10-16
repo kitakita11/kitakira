@@ -159,12 +159,12 @@ body.home-page {
     left :50%;
     transform:translate(-50%,-50%) scaleX(2);
     color:var(--clr-primary-5);
+    text-shadow: 8px 8px 20px var(--clr-primary-3);
     font-size: 120px;
     font-weight: 800;
     text-align:center;
     margin:1rem;
     letter-spacing: 10px;
-    text-shadow: 8px 8px 15px #001d3d;
     background:none;
     z-index: 10;
     pointer-events:none;
@@ -684,6 +684,13 @@ body.home-page {
 
 .season-crystal{
     min-height: auto;
+}
+.season-crystal h2{
+    font-size: 65px;
+    color: var(--clr-primary-5);
+    text-shadow: 0 0 20px var(--clr-primary-3);
+    margin : 150px 550px 80px 550px;
+    font-family: var(--ff-secondary);
 }
 
 .season-crystal-container{
@@ -1274,6 +1281,8 @@ opacity:0.85;
 
 .cart-page h1 {
     color: var(--clr-primary-5);
+    text-shadow: 8px 8px 20px var(--clr-primary-3);
+    font-family: var(--ff-secondary);
     font-family: var(--ff-secondary);
     font-size: 5rem;
     margin-bottom: 2rem;
