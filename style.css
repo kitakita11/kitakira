@@ -879,8 +879,7 @@ padding:50px 20px;
     background:rgba(0,0,0,0.35); 
 }
 #step3 {
-    margin-top: 200px;
-    margin-left: 300px;
+    margin:100px auto;
 }
 
 .tip-msg {
