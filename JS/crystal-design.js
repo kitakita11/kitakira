@@ -523,3 +523,140 @@ confirmAddToCart.onclick = ()=>{
   successMsg.style.display = "block";
   setTimeout(()=> successMsg.style.display="none",2500);
 }
+// ========== 手机触屏拖拽 ==========
+let touchDragSource = null; // 标记拖拽来源：card / bead
+let touchDragIndex = null;
+let touchCrystalName = null;
+let tempDragBead = null; // 触屏拖拽时跟随手指的悬浮预览珠子
+
+// 给所有水晶素材卡片绑定触屏事件（在step2生成卡片后也要重新绑定！）
+function bindCrystalCardTouch(){
+  document.querySelectorAll(".crystal-card").forEach(card => {
+    // 先移除旧事件防止重复绑定
+    card.removeEventListener("touchstart", onCardTouchStart);
+    card.addEventListener("touchstart", onCardTouchStart, {passive:false});
+  });
+}
+
+// 素材卡片：手指按下开始拖拽新水晶
+function onCardTouchStart(e){
+  e.preventDefault();
+  const touch = e.touches[0];
+  touchDragSource = "card";
+  touchCrystalName = e.currentTarget.dataset.name;
+
+  // 创建跟随手指的预览珠子
+  tempDragBead = document.createElement("div");
+  tempDragBead.className="crystal-bead";
+  const color = crystalDotColors[touchCrystalName];
+  tempDragBead.style.cssText = `
+    position:fixed;
+    width:36px;height:36px;border-radius:50%;
+    background:${color};box-shadow:0 0 10px ${color};
+    pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);opacity:0.8;
+  `;
+  document.body.appendChild(tempDragBead);
+  moveTempBead(touch.clientX, touch.clientY);
+
+  document.addEventListener("touchmove", onTouchMove, {passive:false});
+  document.addEventListener("touchend", onTouchEnd);
+}
+
+// 画布内珠子：手指按下，准备交换珠子
+designFrame.addEventListener("touchstart", function(e){
+  const beadEl = e.target.closest(".crystal-bead");
+  if(!beadEl) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  touchDragSource = "bead";
+  touchDragIndex = Number(beadEl.dataset.idx);
+
+  // 悬浮预览珠子
+  tempDragBead = document.createElement("div");
+  tempDragBead.className="crystal-bead";
+  const crystalName = braceletCrystals[touchDragIndex];
+  const color = crystalDotColors[crystalName];
+  tempDragBead.style.cssText = `
+    position:fixed;
+    width:36px;height:36px;border-radius:50%;
+    background:${color};box-shadow:0 0 10px ${color};
+    pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);opacity:0.8;
+  `;
+  document.body.appendChild(tempDragBead);
+  moveTempBead(touch.clientX, touch.clientY);
+
+  document.addEventListener("touchmove", onTouchMove, {passive:false});
+  document.addEventListener("touchend", onTouchEnd);
+}, {passive:false});
+
+// 手指移动，更新悬浮珠子位置
+function onTouchMove(e){
+  e.preventDefault(); // 阻止页面滚动
+  const touch = e.touches[0];
+  moveTempBead(touch.clientX, touch.clientY);
+}
+function moveTempBead(x,y){
+  if(tempDragBead){
+    tempDragBead.style.left = `${x}px`;
+    tempDragBead.style.top = `${y}px`;
+  }
+}
+
+// 手指松开：判断落点
+function onTouchEnd(e){
+  document.removeEventListener("touchmove", onTouchMove);
+  document.removeEventListener("touchend", onTouchEnd);
+  if(!tempDragBead) return;
+  const touch = e.changedTouches[0];
+  const dropX = touch.clientX;
+  const dropY = touch.clientY;
+  const frameRect = designFrame.getBoundingClientRect();
+
+  // 删除悬浮预览珠
+  tempDragBead.remove();
+  tempDragBead = null;
+
+  // 判断手指是否落在designFrame画布区域内
+  const inFrame = dropX >= frameRect.left && dropX <= frameRect.right
+    && dropY >= frameRect.top && dropY <= frameRect.bottom;
+
+  if(touchDragSource === "card"){
+    // 从素材卡片拖来的新水晶
+    if(inFrame){
+      saveHistory();
+      braceletCrystals.push(touchCrystalName);
+      renderBraceletRing();
+      updateCountPrice();
+    }
+  }else if(touchDragSource === "bead"){
+    // 圆环内交换珠子
+    if(inFrame){
+      // 查找落点最近的珠子
+      let targetIdx = null;
+      let minDist = Infinity;
+      designFrame.querySelectorAll(".crystal-bead").forEach(bead=>{
+        const beadRect = bead.getBoundingClientRect();
+        const bx = beadRect.left + beadRect.width/2;
+        const by = beadRect.top + beadRect.height/2;
+        const dist = Math.hypot(bx-dropX, by-dropY);
+        if(dist < minDist){
+          minDist = dist;
+          targetIdx = Number(bead.dataset.idx);
+        }
+      });
+      if(targetIdx !== null && targetIdx !== touchDragIndex){
+        saveHistory();
+        [braceletCrystals[touchDragIndex], braceletCrystals[targetIdx]] =
+        [braceletCrystals[targetIdx], braceletCrystals[touchDragIndex]];
+        renderBraceletRing();
+        updateCountPrice();
+      }
+    }
+  }
+  // 重置变量
+  touchDragSource = null;
+  touchDragIndex = null;
+  touchCrystalName = null;
+}
