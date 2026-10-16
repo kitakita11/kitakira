@@ -775,9 +775,9 @@ gap:32px;
     margin:1rem auto;
 }
 .crystal-bead{
-    touch-action: none;
     cursor:grab;
     transition: transform 0.2s ease;
+    touch-action: none;
 }
 .crystal-bead:active{
     cursor:grabbing;
@@ -939,12 +939,10 @@ padding:50px 20px;
     border-radius:16px;
     overflow:hidden;
 }
-
 .designFrame,
 #braceletCanvas {
   touch-action: none;          /* 关键 */
 }
-
 #braceletCanvas{
     width:100%;
     height:100%;
@@ -1539,30 +1537,198 @@ opacity:0.85;
 /*===== media size ========*/
 /*========================= */
 
+/* phone size*/
+
+@media(max-width: 768px){
+        .main-menu{
+            display : none;
+        }
+        .fa-bars{
+            display : inline-block;
+        }
+    }
+
+/* zodiac page */
+
+@media (max-width:900px){
+    .element {
+    width: 220px;
+    height: 220px;}
+
+    :root {
+    --face: 220px;}
+
+    .btn-group{
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: auto auto auto;
+        gap:10px 8px;
+    }
+    .five-element .btn{
+        font-size:14px;
+        padding:8px 12px;
+    }
+}
+@media (max-width:550px){
+    .element {
+    width: 180px;
+    height: 180px;}
+
+    :root {
+    --face: 180px;
+    }
+    .btn-group{
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(4, auto);
+    }
+}
+
+/* CRYSTAL DESIGN */
+
+@media(max-width:520px){
+    .design-canvas{
+    width:280px;
+    height:280px;
+    }
+    .canvas-crystal{
+    width:44px;
+    height:44px;
+    font-size:0.6rem;
+    }
+}
+/* index size */
+@media (max-width: 640px) {
+    .home .design .btn,
+    .home .design .sale {
+    font-size:18px;
+    padding:10px 22px;
+    }
+    .home .design .btn {
+    top: 60vh;
+    }
+    .home .design .sale {
+    top: 72vh;
+    }
+}
+/*index 3d size */
+@media (max-width: 1024px) {
+    .home h2 {
+    font-size: 80px;
+    letter-spacing:6px;
+    }
+}
+@media (max-width: 640px) {
+    .home h2 {
+    font-size: 48px;
+    letter-spacing:3px;
+    top: 100px;
+    }
+}
+/*手机预览全屏*/
 @media(max-width:768px){
-html,body {
-    overflow-x: hidden;
+    .side-preview-panel{
+    width:100vw;
+    }
 }
-/* navbar */
-.main-menu{display:none;}
-/* zodiac dual layout */
-.zodiac-dual-layout{grid-template-columns:1fr;}
-/* cart */
-.cart-container{grid-template-columns:1fr;}
-.cart-item{grid-template-columns: 80px 1fr; padding:14px;}
-.cart-item-img{width:80px;height:80px;}
-.cart-item-qty{grid-column: 1 / -1;margin-top:10px;}
-/* user form */
-.user-card, .form-card{padding:2rem 1.2rem;}
-.user-card h2{font-size: clamp(1.8rem,7vw,4rem);}
-/* crystal info page */
-.crystal-info-hero h1{font-size: clamp(2rem,8vw,70px);}
-.crystal-section h2{font-size:1.6rem;}
-.crystal-section{padding:25px;}
-.anchor-nav{gap:8px;}
-.anchor-nav a{font-size:0.9rem;padding:6px 12px;}
-/* 3D photo card */
-.photo-card {width:160px;height:160px;margin: -80px 0 0 -80px;animation-name: cardIn;}
-/* design frame */
-.designFrame{max-width:320px;height:320px;}
+/* 仅电脑端启用hover效果 */
+@media (hover: hover) {
+    .photo-card:hover {
+    animation-play-state: paused;
+    transform: var(--final-pos) translateZ(400px) scale(1.5);
+    filter: brightness(1.25) saturate(1.1);
+    }
 }
+@media (max-width:768px) {
+    .photo-card {
+    width:160px;
+    height:160px;
+    margin: -80px 0 0 -80px;
+    }
+}
+
+/* responsive */
+@media(max-width:900px){
+    .design-row{
+        grid-template-columns: 1fr;
+    }
+    .crystal-select-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .hero-content h1{
+        font-size:2rem;
+    }
+    .main-nav{
+        padding:1rem;
+    }
+    .nav-links{
+        display:none;
+    }
+}
+
+/* SEASON CRYSTAL */
+@media(max-width:900px){
+    .cart-container{
+    grid-template-columns:1fr;
+    }
+    .cart-item{
+    grid-template-columns: 100px 1fr;
+    }
+    .cart-item-qty{
+    grid-column: 1 / -1;
+    margin-top:10px;
+    }
+}
+
+@media(max-width:550px){
+    .cart-page h1{
+    font-size:2rem;
+    }
+    .cart-item{
+    grid-template-columns: 80px 1fr;
+    padding:14px;
+    }
+    .cart-item-img{
+    width:80px;
+    height:80px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .user-card, .form-card{
+    padding:2rem 1.2rem;
+    }
+    .user-card h2{
+    font-size:1.8rem;
+    }
+}
+
+
+@media(max-width:900px){
+    .zodiac-dual-layout{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* crystal info */
+@media(max-width:768px){
+    .crystal-info-hero h1{
+    font-size:2rem;
+    }
+    .crystal-section h2{
+    font-size:1.6rem;
+    }
+    .crystal-section{
+    padding:25px;
+    }
+    .img-placeholder{
+    height:180px;
+    }
+    .anchor-nav{
+    gap:8px;
+    }
+    .anchor-nav a{
+    font-size:0.9rem;
+    padding:6px 12px;
+    }
+}
+
