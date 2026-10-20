@@ -20,7 +20,7 @@
     --clr-primary-9: #332b00;
     --clr-primary-10: #241e00;
     /* greys */
-    --clr-grey-1: hsl(50.1 100% 50%);
+    --clr-grey-1: hsl(50,100%,50%);
     --clr-grey-2: hsl(50,100%,50%,0.9);
     --clr-grey-3: hsl(50,100%,50%,0.8);
     --clr-grey-4: hsl(50,100%,50%,0.7);
@@ -35,8 +35,8 @@
     
     /*typograph */
     --ff-primary:"Fira Mono", monospace;
-    --ff-secondary:"Megrim", system-ui;
-    --ff-accent: "Mrs Saint Delafield", cursive;
+    --ff-secondary:"Megrim", system-ui, sans-serif;
+    --ff-accent: "Mrs Saint Delafield", cursive, serif;
     /* effect */
     --transition:all 0.3s linear;
     --spacing :0.25rem;
@@ -52,6 +52,8 @@
 }
 html{
     scroll-behavior : smooth;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
 }
 body{
 margin: 0;
@@ -178,7 +180,7 @@ body.home-page {
 
 .home .design .btn{
     position: absolute;
-    top: 750px;    /* 控制垂直位置，數字調大往下、調小往上 */
+    top: 75vh;    /* 控制垂直位置，數字調大往下、調小往上 */
     left: 50%;
     transform: translate(-50%,-50%);
     z-index:10;
@@ -202,7 +204,7 @@ body.home-page {
 
 .home .design .sale{
     position: absolute;
-    top: 820px;   /* 控制垂直位置，數字調大往下、調小往上 */
+    top: 82vh;   /* 控制垂直位置，數字調大往下、調小往上 */
     left: 50%;
     transform: translate(-50%,-50%);
     z-index:10;
@@ -217,6 +219,7 @@ body.home-page {
     box-shadow: 0 0 15px var(--clr-primary-5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
 .home .design .sale:hover{
     background-color: var(--clr-primary-4);
     color: #001d3d; 
@@ -409,14 +412,23 @@ body.home-page {
     margin: 4rem auto;
     padding:0 1rem;
 }
-.zodiac-info-panel{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,213,0,0.2);
-    border-radius:16px;
-    padding:2rem;
+.zodiac-info-panel,
+.product-panel .single-crystal-card {
+    margin-top:50px;
+    border: 1px solid rgba(255, 213, 0, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
     backdrop-filter: blur(8px);
+    padding:2rem;
     color:var(--clr-primary-0);
 }
+
+.zodiac-info-panel,
+.product-panel .single-crystal-card:hover {
+    border-color: var(--clr-primary-5);
+    box-shadow: 0 12px 30px rgba(255, 213, 0, 0.18);
+}
+
 .zodiac-info-panel h2{
     color:var(--clr-primary-2);
     font-family:Megrim;
@@ -454,20 +466,7 @@ body.home-page {
     color:var(--clr-white);
     margin-top:10px;
 }
-.zodiac-info-panel,
-.product-panel .single-crystal-card {
-    margin-top:50px;
-    border: 1px solid rgba(255, 213, 0, 0.25);
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
-}
 
-.zodiac-info-panel,
-.product-panel .single-crystal-card:hover {
-    border-color: var(--clr-primary-5);
-    box-shadow: 0 12px 30px rgba(255, 213, 0, 0.18);
-}
 
 /* how to next zodiac page  */
 .zodiac-pagination{
@@ -697,7 +696,7 @@ body.home-page {
     color:var(--clr-primary-3);
     display:grid;
     place-items:center;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     opacity:0;
     pointer-events:none;
     transition:0.3s;
@@ -800,7 +799,7 @@ gap:32px;
     background: linear-gradient(90deg,var(--clr-white),#001d3d);
     color:#111;
     font-weight:bold;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     transition:0.25s;
 }
 
@@ -822,7 +821,7 @@ gap:32px;
     margin:1rem auto;
 }
 .crystal-bead{
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     transition: transform 0.2s ease;
 }
 .crystal-bead:active{
@@ -836,7 +835,7 @@ gap:32px;
     padding:0.6rem;
     background:rgba(255,255,255,0.08);
     border-radius:8px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
 }
 .crystal-dot{
     width:24px;
@@ -886,7 +885,7 @@ padding:50px 20px;
     border:none;
     color:#001d3d;
     border-radius:10px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
 }
 #startDesignBtn:hover{
     color:var(--clr-white);
@@ -956,7 +955,7 @@ padding:50px 20px;
     padding:30px;
     background:rgba(255,255,255,0.08);
     border-radius:15px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     min-width:90px;
 }
 .crystal-card:active{
@@ -1026,7 +1025,7 @@ padding:50px 20px;
     background:var(--clr-grey-4);
     border:none;
     border-radius:8px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     margin-top:20px;
     transition: var(--transition);
 }
@@ -1053,7 +1052,7 @@ padding:50px 20px;
     background:#001d3d;
     border:none;
     border-radius:8px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     margin:30px;
     transition: var(--transition);
 }
@@ -1092,7 +1091,7 @@ position:relative;
 position:absolute;
 top:16px;
 right:16px;
-cursor: url("/img/cursor.svg") 10 10, auto;
+cursor: url("./img/cursor.svg") 10 10, auto;
 font-size:24px;
 }
 #cancelAddToCart,
@@ -1101,7 +1100,7 @@ font-size:18px;
 padding:10px 22px;
 border:none;
 border-radius:8px;
-cursor: url("/img/cursor.svg") 10 10, auto;
+cursor: url("./img/cursor.svg") 10 10, auto;
 margin:10px 6px;
 transition: var(--transition);
 }
@@ -1147,7 +1146,7 @@ background:#d4af37;
 color:var(--clr-white);
 border:none;
 border-radius:8px;
-cursor: url("/img/cursor.svg") 10 10, auto;
+cursor: url("./img/cursor.svg") 10 10, auto;
 transition: var(--transition);
 }
 #submitBirthday:hover{
@@ -1287,7 +1286,7 @@ opacity:0.85;
     font-weight:700;
     font-size:2rem;
     letter-spacing:2px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     transition:0.3s;
     font-family: var(--ff-secondary);
 }
@@ -1322,7 +1321,6 @@ opacity:0.85;
 .cart-page h1 {
     color: var(--clr-primary-5);
     text-shadow: 8px 8px 20px var(--clr-primary-3);
-    font-family: var(--ff-secondary);
     font-family: var(--ff-secondary);
     font-size: 5rem;
     margin-bottom: 2rem;
@@ -1416,7 +1414,7 @@ opacity:0.85;
     border-radius: 6px;
     background: var(--clr-primary-7);
     color: #fff;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     font-size: 18px;
 }
 .qty-btn:hover {
@@ -1433,7 +1431,7 @@ opacity:0.85;
 .cart-item-remove {
     margin-left:12px;
     color:#ff4444;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     font-size:20px;
 }
 
@@ -1464,7 +1462,7 @@ opacity:0.85;
     border-radius:8px;
     font-size:18px;
     letter-spacing:2px;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
     margin-bottom:12px;
     font-weight:bold;
 }
@@ -1528,7 +1526,7 @@ opacity:0.85;
     border:none;
     color:var(--clr-primary-5);
     font-size:2rem;
-    cursor: url("/img/cursor.svg") 10 10, auto;
+    cursor: url("./img/cursor.svg") 10 10, auto;
 }
 .mobile-menu-list {
     list-style:none;
@@ -1754,26 +1752,121 @@ opacity:0.85;
 }
 
 
-/* crystal info */
-@media(max-width:768px){
+/* crystal info phone size*/
+/* ============ crystal-info 手机端修正 ============ */
+@media (max-width: 768px){
+  /* hero：去掉巨型 padding，给固定 navbar 让位 */
+    .crystal-info-hero{
+    padding: calc(var(--navbar-height) + 40px) 18px 60px;
+    }
     .crystal-info-hero h1{
-    font-size:2rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 18px;
     }
-    .crystal-section h2{
-    font-size:1.6rem;
+    .crystal-info-hero p{
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 26px;
     }
-    .crystal-section{
-    padding:25px;
-    }
-    .img-placeholder{
-    height:180px;
-    }
+  /* 锚点按钮：自动换行 2x2，不要竖排堆叠 */
     .anchor-nav{
-    gap:8px;
-    }
-    .anchor-nav a{
-    font-size:0.9rem;
-    padding:6px 12px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .anchor-nav .crystal-btn{
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 10px;
+  }
+  /* section 容器收紧 */
+  .crystal-container{
+    margin: 0 auto 50px;
+    padding: 0 12px;
+  }
+  .crystal-section{
+    padding: 20px 16px;
+    margin-bottom: 22px;
+    border-radius: 16px;
+  }
+  .crystal-section h2{
+    font-size: 1.3rem;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .crystal-section p,
+  .crystal-section li{
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .crystal-section ul{ padding-left: 20px; margin-top: 10px; }
+  .crystal-section li{ margin: 8px 0; }
+  /* 图片占位高度收紧 */
+  .img-placeholder{
+    height: 180px;
+    margin-bottom: 14px;
+  }
+  /* 4 张 type-card 两列排列 */
+  .crystal-type-grid{
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .type-card{
+    padding: 16px;
+    border-radius: 14px;
+  }
+  .type-card h3{
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .type-card p{
+    font-size: 13px !important;
+    line-height: 1.55;
+  }
+  /* navbar 图标手机端缩小 */
+  .navbar{ font-size: 1.1rem; }
+  .navbar-flex{ padding: 0 14px; }
+  .navbar-icon{ display: flex; align-items: center; gap: 0.9rem; }
 }
+
+/* zodiac page box*/
+@media (max-width: 768px){
+  /*  navbar size */
+    .zodiac-dual-layout{
+    margin: calc(var(--navbar-height) + 16px) auto 2rem;
+    padding: 0 12px;
+    gap: 1rem;
+    }
+    .zodiac-info-panel,
+    .product-panel .single-crystal-card{
+    margin-top: 0;
+    padding: 1.2rem;
+    border-radius: 14px;
+    }
+    /* img size*/
+    .about-zodiac-img,
+    .zodiac-img{
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px;
+    }
+    .about-zodiac-img img,
+    .zodiac-img img{
+    height: 100%;
+    object-fit: cover;
+    }
+  /* 文字缩到手机可读尺寸，避免溢出 */
+    .zodiac-info-panel h2{ font-size: 24px; margin-bottom: .4rem; }
+    .zodiac-info-panel h3{ font-size: 17px; margin: .9rem 0 .3rem; }
+    .zodiac-info-panel p,
+    .zodiac-info-panel li{ font-size: 14.5px; line-height: 1.65; }
+  /* 防止任何子元素横向溢出 */
+    .zodiac-dual-layout,
+    .zodiac-info-panel,
+    .product-panel{ max-width: 100%; overflow-x: hidden; }
+}
+
 
