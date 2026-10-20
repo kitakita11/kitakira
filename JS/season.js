@@ -28,6 +28,26 @@ mobileFiveElement.addEventListener("click",(e)=>{
 })
 
 
+// ========== TOP TOAST FUNCTION ==========
+function showToast(msg) {
+  // 清除旧toast
+    const oldToast = document.querySelector('.toast-notice');
+    if(oldToast) oldToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-notice';
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+
+  // 入场动画
+    setTimeout(()=> toast.style.transform = "translateX(-50%)", 10);
+
+  // 3秒后消失
+    setTimeout(()=>{
+    toast.classList.add('hide');
+    toast.addEventListener('transitionend', ()=> toast.remove());
+    }, 3000);
+}
 /*====================*/
 /* =====cart ========*/
 /*====================*/
@@ -48,7 +68,8 @@ findItem.quantity += 1;
 cart.push({...product, quantity:1});
 }
 saveCart(cart);
-alert("✅ Good Choose!! Added to cart!");
+
+showToast("✅ Good Choose!! Added to cart!");
 }
 // cart btn
 document.querySelectorAll('.add-cart-btn').forEach(btn => {
@@ -61,5 +82,4 @@ img: btn.dataset.img
 addToCart(product);
 })
 })
-
 

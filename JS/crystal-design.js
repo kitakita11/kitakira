@@ -23,6 +23,20 @@ mobileFiveElement.addEventListener("click",(e)=>{
 e.preventDefault();
 mobileSubMenu.classList.toggle("open");
 })
+// ===================== TOAST FUNCTION｜顶部发光大提示 =====================
+function showToast(msg) {
+  const oldToast = document.querySelector('.toast-notice');
+  if(oldToast) oldToast.remove();
+  const toast = document.createElement('div');
+  toast.className = 'toast-notice';
+  toast.innerText = msg;
+  document.body.appendChild(toast);
+  setTimeout(()=> toast.style.transform = "translate(-50%, 0)", 10);
+  setTimeout(()=>{
+    toast.classList.add('hide');
+    toast.addEventListener('transitionend', ()=> toast.remove());
+  }, 3000);
+}
 
 // ===================== 购物车公共函数（和商品列表页保持一致） =====================
 function getCart() {
@@ -266,7 +280,6 @@ const isLimitedCrystalCheck = document.getElementById("isLimitedCrystal");
 const undoBtn = document.getElementById("undoBtn");
 const resetBtn = document.getElementById("resetBtn");
 const addCustomToCartBtn = document.getElementById("addCustomToCart");
-const successMsg = document.querySelector(".success-msg");
 const previewModal = document.getElementById("previewModal");
 const closePreviewBtn = document.querySelector(".close-preview");
 const cancelAddToCart = document.getElementById("cancelAddToCart");
@@ -486,9 +499,10 @@ addCustomToCartBtn.onclick = ()=>{
 const finalPrice = calcTotalPrice();
 // 校验不足8颗不能加入购物车
 if(braceletCrystals.length < 8){
-alert("Minimum 8 crystals required for bracelet package.");
+showToast("⚠️ Minimum 8 crystals required for bracelet package.");
 return;
 }
+
 previewZodiacEl.innerText = `${currentZodiac.symbol} ${currentZodiac.name}`;
 previewCountEl.innerText = braceletCrystals.length;
 previewPriceEl.innerText = `HK$${finalPrice}`;
@@ -520,6 +534,5 @@ confirmAddToCart.onclick = ()=>{
   saveCart(cart);
 
   previewModal.style.display = "none";
-  successMsg.style.display = "block";
-  setTimeout(()=> successMsg.style.display="none",2500);
+  showToast("✅ Your Design Crystal added to cart!");
 }
