@@ -63,11 +63,11 @@ background-attachment: fixed;
 background-repeat: no-repeat;
 z-index: -999;
 /* url(图片地址) 热点X 热点Y , 兜底光标 */
-cursor: url("/img/cursor.svg") 10 10, auto;
+cursor: url("./img/cursor.svg") 10 10, auto;
 }
 /* 链接hover单独换图案 */
 a:hover, .card:hover {
-cursor: url("/img/cursor-hover.svg") 8 8, pointer;
+cursor: url("./img/cursor-hover.svg") 8 8, pointer;
 
 }
 
