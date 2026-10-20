@@ -183,11 +183,11 @@ body.home-page {
     transform: translate(-50%,-50%);
     z-index:10;
     display: inline-block;
-    padding:14px 32px;
+    padding:10px 22px;
     background-color: var(--clr-grey-9);
     color:#001d3d;
     text-decoration: none;
-    font-size:26px;
+    font-size:24px;
     letter-spacing:4px;
     border-radius:8px;
     box-shadow: 0 0 15px var(--clr-primary-5);
@@ -202,16 +202,16 @@ body.home-page {
 
 .home .design .sale{
     position: absolute;
-    top: 850px;   /* 控制垂直位置，數字調大往下、調小往上 */
+    top: 820px;   /* 控制垂直位置，數字調大往下、調小往上 */
     left: 50%;
     transform: translate(-50%,-50%);
     z-index:10;
     display: inline-block;
-    padding:14px 32px;
+    padding:10px 22px;
     background-color: var(--clr-grey-9);
     color:#001d3d;
     text-decoration: none;
-    font-size:26px;
+    font-size:24px;
     letter-spacing:4px;
     border-radius:8px;
     box-shadow: 0 0 15px var(--clr-primary-5);
@@ -1567,11 +1567,13 @@ opacity:0.85;
 .footer{
     position: relative;
     text-align:center;
-    padding: 15px 0;
-    margin-top: 20px;
-    font-size:16px;
+    padding: 24px 0;
+    margin-top: 50px;
+    font-size:15px;
     color:var(--clr-primary-5);
     width: 100%;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
     box-sizing: border-box;
 }
 
